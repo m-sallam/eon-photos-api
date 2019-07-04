@@ -17,6 +17,10 @@ cloudinary.config({
 
 app.use('/api/v1', api)
 
+app.get('/*', (req, res) => {
+  res.send({ message: 'not found' })
+})
+
 var start = async () => {
   try {
     await mongoose.connect(process.env.MONGODB_URI,
